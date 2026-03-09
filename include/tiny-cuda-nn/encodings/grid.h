@@ -1839,7 +1839,8 @@ MultiLevelEncoding<T>* create_grid_encoding(uint32_t n_dims_to_encode, const jso
 	const HashType hash_type = string_to_hash_type(encoding.value("hash", "BaseConvert"));
 	switch (hash_type) {
 		// case HashType::CoherentPrime: return create_grid_encoding_templated_1<T, HashType::CoherentPrime>(n_dims_to_encode, encoding);
-		case HashType::BaseConvert: throw std::runtime_error{"GridEncoding: compiled without BaseConvert hash support."}; 
+		case HashType::CoherentPrime: throw std::runtime_error{"GridEncoding: compiled without CoherentPrime hash support."};
+		// case HashType::BaseConvert: throw std::runtime_error{"GridEncoding: compiled without BaseConvert hash support."}; 
 		case HashType::Prime: throw std::runtime_error{"GridEncoding: compiled without Prime hash support."};
 		case HashType::ReversedPrime: throw std::runtime_error{"GridEncoding: compiled without ReversedPrime hash support."};
 		case HashType::Rng: throw std::runtime_error{"GridEncoding: compiled without Rng hash support."};
